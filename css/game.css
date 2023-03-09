@@ -1,0 +1,473 @@
+:root {
+    width: 100vw;
+    height: 100vh;
+    --card-width: 140px;
+    --card-height: 230px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'ReggaeOne';    
+    color: whitesmoke;  
+}
+
+
+::-webkit-scrollbar {
+    width: 30px;  
+}
+
+  
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(196, 178, 99);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(133, 115, 39);
+}
+
+
+.clickable {
+    cursor: pointer;
+}
+
+
+.clickable:hover {
+    scale: 1.05;
+}
+
+
+.splash {
+    width: 100vw;
+    height: 100vh;
+    background-blend-mode: darken;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9) ), url("../assets/board.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.splash-text {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    padding: 2%;
+    border-radius: 5%;
+    position: relative;
+    top: 45%;
+    background-color: rgba(0, 0, 0, 0.00000000000000000000000001);
+    font-family: 'Triforce';
+    font-size: 500%;
+}
+
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../assets/board.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.opponent-info {
+    width: 100%;
+    height: 10%;
+    border-bottom: 3px groove black;
+    display: grid;
+    grid-template-columns: 100px 1.5fr 4fr 3fr;    
+    text-shadow: #000 2px 2px 3px;
+    -webkit-font-smoothing: antialiased;  
+}
+
+
+.opponent-avatar {
+    height: 100%;
+    width: fit-content;
+}
+
+
+.opponent-avatar > img {
+    height: 100%;
+    width: fit-content;
+    transform: scaleX(-1);
+}
+
+
+.opponent-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.23rem;
+}
+
+
+.opponent-data > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-basis: content;
+    text-shadow: #000 -2px 2px 3px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.opponent-hp {
+    background: url(../assets/hpPlayer.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 5px 10px 0 0;
+    padding: 40px 20px 40px 20px;
+    height: fit-content;
+    
+}
+
+
+.opponent-mp {
+    background: url(../assets/mpPlayer.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 5px 10px 0 0;
+    padding: 20px;
+    height: fit-content;
+    
+}
+
+
+.opponent-deck {
+    background: url(../assets/deck.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 5px 10px 0 0;
+    padding: 20px;
+    height: fit-content;    
+}
+
+
+.opponent-data2 {
+    padding-bottom: 10px;
+}
+
+
+.message-area {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+.message {
+    margin: auto;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+
+.player-commands {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.timer {
+    background: url(../assets/hourglass.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 20px;
+    height: fit-content;
+    width: max-content;
+    font-size: 2rem;
+    text-shadow: black -2px -2px 3px;
+}
+
+
+.hero-power, .end-turn {
+    height: fit-content;
+    width: fit-content;
+    margin: 20px;
+    padding: 40px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 90%;
+    text-align: center;
+    background: url(../assets/button.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.game-board {
+    width: 100%;
+    height: 60%;    
+    display: flex;
+    flex-direction: column;    
+}
+
+
+.opponent-board {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-basis: auto;
+    flex-shrink: 0;
+}
+
+
+.player-board {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-basis: auto;
+    flex-shrink: 0;
+}
+
+
+.player-info {
+    width: 100%;
+    height: 32%;
+    overflow: visible;
+    border-top: 3px groove black;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 250px;    
+}
+
+
+.player-hand {
+    height: 100%;     
+    padding-right: 20px;   
+    display: flex;
+    flex-direction: row-reverse;
+    flex-basis: 80%;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;   
+}
+
+
+.player-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    text-shadow: #000 2px 2px 3px;
+    -webkit-font-smoothing: antialiased;    
+}
+
+
+.player-data1 {
+    text-shadow: #000 -2px 2px 3px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.player-data2 {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 1px 10px 23px 10px;
+    text-align: center;
+}
+
+
+.player-data > div {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 2px;    
+}
+
+
+.player-hp {
+    background: url(../assets/hpPlayer.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 5px 10px 0 0;
+    padding: 20px 30px 30px 30px;
+}
+
+
+.player-mp {
+    background: url(../assets/mpPlayer.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 5px 10px 0 0;
+    padding: 20px;
+}
+
+
+.player-deck {
+    background: url(../assets/deck.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 5px 10px 0 0;
+    padding: 20px;
+}
+
+
+.card {
+    height: var(--card-height);
+    position: relative;
+    overflow: visible;
+    border-radius: 10px;
+    border: solid rgb(100, 16, 16) 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: rgb(196, 178, 99);
+    flex-basis: var(--card-width);
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+
+.card-img {
+    border-bottom: inset rgb(100, 16, 16) 1px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.card-mechanic {
+    font-family: 'RocknRollOne';
+    font-size: 0.7rem;
+    font-weight: 200;
+    color: rgb(121, 28, 28);
+}
+
+
+.card-dedicated {
+    width: 140px;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 1px;
+    font-family: 'RocknRollOne';
+    font-size: 0.5rem;
+    font-weight: 150;
+    color: black;
+    text-align: center;
+    text-justify: center;
+    font-style: italic;
+}
+
+
+.card-stats {
+    margin: 0;
+    width: fit-content;
+    position: absolute;
+    top: -20px;
+    right: -31px;
+    overflow: visible;
+}
+
+
+.card-stats > div {
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 40px;
+    height: fit-content;
+    text-align: center;
+    text-justify: center;
+    font-weight: bold;
+    padding: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    text-shadow: #000 -2px 2px 3px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.card-attack {    
+    background-image: url("../assets/atk.png");
+    background-position: bottom;
+    margin: 0;
+}
+
+
+.card-cost-mp {    
+    background-image: url("../assets/mp.png");
+    margin: 0;    
+}
+
+
+.card-hp {
+    width: 10px;    
+    background-image: url("../assets/hp.png");
+    background-size:auto;
+    margin: 0;
+}
+
+
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+
+    100% {
+        z-index: -10;
+        opacity: 0;
+    }
+}
+
+
+
+@font-face {
+    font-family: "Triforce";
+    src: url("../assets/fonts/Triforce.ttf");
+}
+
+@font-face {
+    font-family: "ReggaeOne";
+    src: url("../assets/fonts/ReggaeOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "RocknRollOne";
+    src: url("../assets/fonts/RocknRollOne-Regular.ttf");
+}
